@@ -1,6 +1,7 @@
 {
   "name": "electron-seed",
   "description": "Seed project for electron apps.",
+  "main": "main.js",
   "version": "0.1.0",
   "repository": {
     "type": "git",

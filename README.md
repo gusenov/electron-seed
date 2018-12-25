@@ -725,7 +725,7 @@ System.config({
 });
 ```
 
-# Шаг № 7
+# [Шаг № 7](https://github.com/gusenov/electron-seed/commit/001cfff1b70180fad534e8c4d91a94b748c3bce3)
 
 Патч конфигурации jspm:
 
@@ -734,7 +734,7 @@ sed -i -e 's|"github:\*": "jspm_packages/github/\*"|"github:\*": "\./jspm_packag
 sed -i -e 's|"npm:\*": "jspm_packages/npm/\*"|"npm:\*": "\./jspm_packages/npm/\*"|g' "config.js"
 ```
 
-Т.е. замена в файле [config.js](config.js) строк:
+Т.е. замена в файле [config.js](https://github.com/gusenov/electron-seed/blob/001cfff1b70180fad534e8c4d91a94b748c3bce3/config.js) строк:
 
 ```js
 "github:*": "jspm_packages/github/*",
@@ -746,4 +746,117 @@ sed -i -e 's|"npm:\*": "jspm_packages/npm/\*"|"npm:\*": "\./jspm_packages/npm/\*
 ```js
 "github:*": "./jspm_packages/github/*",
 "npm:*": "./jspm_packages/npm/*"
+```
+
+# Шаг № 8
+
+Добавление скрипта в [package.json](package.json), который запустится *единственным главным процессом*.
+
+Файл [package.json](package.json):
+
+```json
+{
+  "name": "electron-seed",
+  "description": "Seed project for electron apps.",
+  "main": "main.js",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gusenov/electron-seed.git"
+  },
+  "homepage": "https://github.com/gusenov/electron-seed#readme",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^4.0.0",
+    "jspm": "^0.16.53"
+  },
+  "jspm": {
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "core-js": "npm:core-js@^1.1.4"
+    }
+  }
+}
+```
+
+Скрипт запускаемый *единственным главным процессом* может отображать GUI и создавать веб-страницы:
+
+Файл [main.js](main.js):
+
+```js
+const { app, BrowserWindow } = require('electron')
+
+// Глобальная ссылка для удержания объекта окна, иначе окно автоматически закроется,
+// когда JavaScript-объект утилизируется сборщиком мусора:
+let win
+
+function createWindow () {
+  // Создать окно браузера:
+  win = new BrowserWindow({ width: 800, height: 600 })
+
+  // Загрузить index.html в созданное окно браузера:
+  win.loadFile('index.html')
+
+  // Открыть DevTools:
+  win.webContents.openDevTools()
+
+  // Обработчик закрытия окна браузера:
+  win.on('closed', () => {
+    // Если приложение поддерживает несколько окон, то нужно хранить их в массиве.
+    // Здесь же нужно удалять соответствующие элементы:
+
+    // Удаление ссылки на объект окна:
+    win = null
+  })
+}
+
+// Этот метод будет вызван после того как Electron завершит инициализацию
+// и будет готов создать окна браузера
+// (некоторые API могут использоваться только после того как произойдёт это событие):
+app.on('ready', createWindow)
+
+// Выйти, когда все окна закрылись:
+app.on('window-all-closed', () => {
+  // На macOS приложение и его меню должно оставаться активным
+  // до тех пор пока пользователь не выйдет из приложения явно нажатием Cmd + Q:
+  if (process.platform !== 'darwin') {
+    app.quit()
+  }
+})
+
+app.on('activate', () => {
+  // На macOS нужно пересоздавать окно приложения,
+  // когда нажат значок приложения на панели и нет других открытых окон:
+  if (win === null) {
+    createWindow()
+  }
+})
+
+// В этот файл можно включить оставшуюся часть кода приложения,
+// который должен выполняться в единственном главном процессе.
+// Можно также разместить его в отдельных файлах, а здесь запросить.
+```
+
+Electron использует мультипроцессную архитектуру Chromium для отображения веб-страниц.
+Каждая веб-страница работает в собственном процессе, который называется *рендерингом*.
+В обыкновенных браузерах, веб-страницы запускаются в песочницах и не могут получить доступ к нативным ресурсам.
+Но в Electron на веб-страницах пользователям доступен Node.js API, который позволяет низкоуровневое взаимодействие с ОС.
+
+Файл [index.html](index.html):
+
+```html
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Здравствуй, мир!</title>
+  </head>
+  <body>
+    <h1>Здравствуй, мир!</h1>
+    Используется Node.js <script>document.write(process.versions.node)</script>,
+    Chrome <script>document.write(process.versions.chrome)</script>,
+    и Electron <script>document.write(process.versions.electron)</script>.
+  </body>
+</html>
 ```

@@ -1,0 +1,11 @@
+{
+  "name": "electron-seed",
+  "description": "Seed project for electron apps.",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gusenov/electron-seed.git"
+  },
+  "homepage": "https://github.com/gusenov/electron-seed#readme",
+  "license": "MIT"
+}

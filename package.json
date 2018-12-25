@@ -9,6 +9,7 @@
   "homepage": "https://github.com/gusenov/electron-seed#readme",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^4.0.0"
+    "electron": "^4.0.0",
+    "jspm": "^0.16.53"
   }
 }

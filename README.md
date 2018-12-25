@@ -33,7 +33,7 @@ $ wget https://raw.githubusercontent.com/github/gitignore/master/Node.gitignore 
 }
 ```
 
-# Шаг № 4
+# [Шаг № 4](https://github.com/gusenov/electron-seed/commit/8fe874100e7a1cb1bcc273ebbc9b0de697b7c710)
 
 Установка [Electron](https://electronjs.org/):
 
@@ -191,7 +191,7 @@ electron-seed@0.1.0 /home/abbas/electron-seed
         └── pend@1.2.0
 ```
 
-Файл [package.json](package.json) после установки [Electron](https://electronjs.org/):
+Файл [package.json](https://github.com/gusenov/electron-seed/blob/8fe874100e7a1cb1bcc273ebbc9b0de697b7c710/package.json) после установки [Electron](https://electronjs.org/):
 
 ```json
 {
@@ -206,6 +206,309 @@ electron-seed@0.1.0 /home/abbas/electron-seed
   "license": "MIT",
   "devDependencies": {
     "electron": "^4.0.0"
+  }
+}
+```
+
+# Шаг № 5
+
+Установка [jspm](https://jspm.org/):
+
+```bash
+$ npm install jspm --save-dev
+
+electron-seed@0.1.0 /home/abbas/electron-seed
+├─┬ electron@4.0.0
+│ ├─┬ electron-download@4.1.1
+│ │ ├─┬ nugget@2.0.1
+│ │ │ └─┬ debug@2.6.9
+│ │ │   └── ms@2.0.0
+│ │ └─┬ sumchecker@2.0.2
+│ │   └─┬ debug@2.6.9
+│ │     └── ms@2.0.0
+│ └─┬ extract-zip@1.6.7
+│   ├─┬ concat-stream@1.6.2
+│   │ └─┬ readable-stream@2.3.6
+│   │   └── isarray@1.0.0
+│   └─┬ debug@2.6.9
+│     └── ms@2.0.0
+└─┬ jspm@0.16.53
+  ├─┬ chalk@1.1.3
+  │ ├── ansi-styles@2.2.1
+  │ ├── escape-string-regexp@1.0.5
+  │ ├── has-ansi@2.0.0
+  │ └── supports-color@2.0.0
+  ├── core-js@1.2.7
+  ├─┬ glob@6.0.4
+  │ ├─┬ inflight@1.0.6
+  │ │ └── wrappy@1.0.2
+  │ ├── once@1.4.0
+  │ └── path-is-absolute@1.0.1
+  ├─┬ jspm-github@0.13.20
+  │ ├─┬ expand-tilde@1.2.2
+  │ │ └── os-homedir@1.0.2
+  │ ├── netrc@0.1.4
+  │ ├─┬ tar@2.2.1
+  │ │ ├── block-stream@0.0.9
+  │ │ └── fstream@1.0.11
+  │ └─┬ which@1.3.1
+  │   └── isexe@2.0.0
+  ├─┬ jspm-npm@0.26.14
+  │ ├── buffer-peek-stream@1.0.1
+  │ ├── glob@5.0.15
+  │ ├─┬ resolve@1.9.0
+  │ │ └── path-parse@1.0.6
+  │ └── tar@1.0.3
+  ├─┬ jspm-registry@0.4.4
+  │ └── semver@4.3.6
+  ├─┬ liftoff@2.5.0
+  │ ├─┬ findup-sync@2.0.0
+  │ │ ├── detect-file@1.0.0
+  │ │ ├─┬ is-glob@3.1.0
+  │ │ │ └── is-extglob@2.1.1
+  │ │ ├─┬ micromatch@3.1.10
+  │ │ │ ├── arr-diff@4.0.0
+  │ │ │ ├── array-unique@0.3.2
+  │ │ │ ├─┬ braces@2.3.2
+  │ │ │ │ ├── arr-flatten@1.1.0
+  │ │ │ │ ├─┬ extend-shallow@2.0.1
+  │ │ │ │ │ └── is-extendable@0.1.1
+  │ │ │ │ ├─┬ fill-range@4.0.0
+  │ │ │ │ │ ├── extend-shallow@2.0.1
+  │ │ │ │ │ ├── is-number@3.0.0
+  │ │ │ │ │ ├── repeat-string@1.6.1
+  │ │ │ │ │ └── to-regex-range@2.1.1
+  │ │ │ │ ├── repeat-element@1.1.3
+  │ │ │ │ ├─┬ snapdragon-node@2.1.1
+  │ │ │ │ │ ├─┬ define-property@1.0.0
+  │ │ │ │ │ │ └─┬ is-descriptor@1.0.2
+  │ │ │ │ │ │   ├── is-accessor-descriptor@1.0.0
+  │ │ │ │ │ │   ├── is-data-descriptor@1.0.0
+  │ │ │ │ │ │   └── kind-of@6.0.2
+  │ │ │ │ │ └── snapdragon-util@3.0.1
+  │ │ │ │ └── split-string@3.1.0
+  │ │ │ ├─┬ define-property@2.0.2
+  │ │ │ │ └─┬ is-descriptor@1.0.2
+  │ │ │ │   ├── is-accessor-descriptor@1.0.0
+  │ │ │ │   ├── is-data-descriptor@1.0.0
+  │ │ │ │   └── kind-of@6.0.2
+  │ │ │ ├─┬ extend-shallow@3.0.2
+  │ │ │ │ ├── assign-symbols@1.0.0
+  │ │ │ │ └── is-extendable@1.0.1
+  │ │ │ ├─┬ extglob@2.0.4
+  │ │ │ │ ├─┬ define-property@1.0.0
+  │ │ │ │ │ └─┬ is-descriptor@1.0.2
+  │ │ │ │ │   ├── is-accessor-descriptor@1.0.0
+  │ │ │ │ │   ├── is-data-descriptor@1.0.0
+  │ │ │ │ │   └── kind-of@6.0.2
+  │ │ │ │ ├─┬ expand-brackets@2.1.4
+  │ │ │ │ │ ├─┬ debug@2.6.9
+  │ │ │ │ │ │ └── ms@2.0.0
+  │ │ │ │ │ ├── define-property@0.2.5
+  │ │ │ │ │ ├── extend-shallow@2.0.1
+  │ │ │ │ │ └── posix-character-classes@0.1.1
+  │ │ │ │ └── extend-shallow@2.0.1
+  │ │ │ ├── fragment-cache@0.2.1
+  │ │ │ ├── kind-of@6.0.2
+  │ │ │ ├─┬ nanomatch@1.2.13
+  │ │ │ │ ├── is-windows@1.0.2
+  │ │ │ │ └── kind-of@6.0.2
+  │ │ │ ├─┬ regex-not@1.0.2
+  │ │ │ │ └─┬ safe-regex@1.1.0
+  │ │ │ │   └── ret@0.1.15
+  │ │ │ ├─┬ snapdragon@0.8.2
+  │ │ │ │ ├─┬ base@0.11.2
+  │ │ │ │ │ ├─┬ cache-base@1.0.1
+  │ │ │ │ │ │ ├─┬ collection-visit@1.0.0
+  │ │ │ │ │ │ │ ├── map-visit@1.0.0
+  │ │ │ │ │ │ │ └── object-visit@1.0.1
+  │ │ │ │ │ │ ├── get-value@2.0.6
+  │ │ │ │ │ │ ├─┬ has-value@1.0.0
+  │ │ │ │ │ │ │ └─┬ has-values@1.0.0
+  │ │ │ │ │ │ │   └── kind-of@4.0.0
+  │ │ │ │ │ │ ├─┬ set-value@2.0.0
+  │ │ │ │ │ │ │ └── extend-shallow@2.0.1
+  │ │ │ │ │ │ ├── to-object-path@0.3.0
+  │ │ │ │ │ │ ├─┬ union-value@1.0.0
+  │ │ │ │ │ │ │ └─┬ set-value@0.4.3
+  │ │ │ │ │ │ │   └── extend-shallow@2.0.1
+  │ │ │ │ │ │ └─┬ unset-value@1.0.0
+  │ │ │ │ │ │   └─┬ has-value@0.3.1
+  │ │ │ │ │ │     ├── has-values@0.1.4
+  │ │ │ │ │ │     └─┬ isobject@2.1.0
+  │ │ │ │ │ │       └── isarray@1.0.0
+  │ │ │ │ │ ├─┬ class-utils@0.3.6
+  │ │ │ │ │ │ ├── arr-union@3.1.0
+  │ │ │ │ │ │ ├── define-property@0.2.5
+  │ │ │ │ │ │ └─┬ static-extend@0.1.2
+  │ │ │ │ │ │   ├── define-property@0.2.5
+  │ │ │ │ │ │   └─┬ object-copy@0.1.0
+  │ │ │ │ │ │     ├── copy-descriptor@0.1.1
+  │ │ │ │ │ │     └── define-property@0.2.5
+  │ │ │ │ │ ├── component-emitter@1.2.1
+  │ │ │ │ │ ├─┬ define-property@1.0.0
+  │ │ │ │ │ │ └─┬ is-descriptor@1.0.2
+  │ │ │ │ │ │   ├── is-accessor-descriptor@1.0.0
+  │ │ │ │ │ │   ├── is-data-descriptor@1.0.0
+  │ │ │ │ │ │   └── kind-of@6.0.2
+  │ │ │ │ │ ├─┬ mixin-deep@1.3.1
+  │ │ │ │ │ │ └── is-extendable@1.0.1
+  │ │ │ │ │ └── pascalcase@0.1.1
+  │ │ │ │ ├─┬ debug@2.6.9
+  │ │ │ │ │ └── ms@2.0.0
+  │ │ │ │ ├─┬ define-property@0.2.5
+  │ │ │ │ │ └─┬ is-descriptor@0.1.6
+  │ │ │ │ │   ├── is-accessor-descriptor@0.1.6
+  │ │ │ │ │   ├── is-data-descriptor@0.1.4
+  │ │ │ │ │   └── kind-of@5.1.0
+  │ │ │ │ ├── extend-shallow@2.0.1
+  │ │ │ │ ├─┬ source-map-resolve@0.5.2
+  │ │ │ │ │ ├── atob@2.1.2
+  │ │ │ │ │ ├── decode-uri-component@0.2.0
+  │ │ │ │ │ ├── resolve-url@0.2.1
+  │ │ │ │ │ ├── source-map-url@0.4.0
+  │ │ │ │ │ └── urix@0.1.0
+  │ │ │ │ └── use@3.1.1
+  │ │ │ └── to-regex@3.0.2
+  │ │ └─┬ resolve-dir@1.0.1
+  │ │   ├── expand-tilde@2.0.2
+  │ │   └─┬ global-modules@1.0.0
+  │ │     └─┬ global-prefix@1.0.2
+  │ │       └── expand-tilde@2.0.2
+  │ ├─┬ fined@1.1.1
+  │ │ ├─┬ expand-tilde@2.0.2
+  │ │ │ └─┬ homedir-polyfill@1.0.1
+  │ │ │   └── parse-passwd@1.0.0
+  │ │ ├─┬ object.defaults@1.1.0
+  │ │ │ ├── array-each@1.0.1
+  │ │ │ └── array-slice@1.1.0
+  │ │ ├── object.pick@1.3.0
+  │ │ └─┬ parse-filepath@1.0.2
+  │ │   ├─┬ is-absolute@1.0.0
+  │ │   │ └─┬ is-relative@1.0.0
+  │ │   │   └─┬ is-unc-path@1.0.0
+  │ │   │     └── unc-path-regex@0.1.2
+  │ │   ├── map-cache@0.2.2
+  │ │   └─┬ path-root@0.1.1
+  │ │     └── path-root-regex@0.1.2
+  │ ├── flagged-respawn@1.0.1
+  │ ├─┬ is-plain-object@2.0.4
+  │ │ └── isobject@3.0.1
+  │ ├─┬ object.map@1.0.1
+  │ │ ├─┬ for-own@1.0.0
+  │ │ │ └── for-in@1.0.2
+  │ │ └─┬ make-iterator@1.0.1
+  │ │   └── kind-of@6.0.2
+  │ └── rechoir@0.6.2
+  ├─┬ minimatch@3.0.4
+  │ └─┬ brace-expansion@1.1.11
+  │   ├── balanced-match@1.0.0
+  │   └── concat-map@0.0.1
+  ├── ncp@2.0.0
+  ├─┬ proper-lockfile@1.2.0
+  │ ├── err-code@1.1.2
+  │ └── retry@0.10.1
+  ├─┬ rimraf@2.6.2
+  │ └─┬ glob@7.1.3
+  │   └── fs.realpath@1.0.0
+  ├── rsvp@3.6.2
+  ├─┬ systemjs@0.19.46
+  │ └── when@3.7.8
+  ├─┬ systemjs-builder@0.15.36
+  │ ├─┬ babel-core@6.26.3
+  │ │ ├─┬ babel-code-frame@6.26.0
+  │ │ │ ├── esutils@2.0.2
+  │ │ │ └── js-tokens@3.0.2
+  │ │ ├─┬ babel-generator@6.26.1
+  │ │ │ ├── detect-indent@4.0.0
+  │ │ │ ├── jsesc@1.3.0
+  │ │ │ └── trim-right@1.0.1
+  │ │ ├── babel-helpers@6.24.1
+  │ │ ├── babel-messages@6.23.0
+  │ │ ├─┬ babel-register@6.26.0
+  │ │ │ ├── core-js@2.6.1
+  │ │ │ └─┬ home-or-tmp@2.0.0
+  │ │ │   └── os-tmpdir@1.0.2
+  │ │ ├─┬ babel-runtime@6.26.0
+  │ │ │ ├── core-js@2.6.1
+  │ │ │ └── regenerator-runtime@0.11.1
+  │ │ ├── babel-template@6.26.0
+  │ │ ├─┬ babel-traverse@6.26.0
+  │ │ │ ├─┬ debug@2.6.9
+  │ │ │ │ └── ms@2.0.0
+  │ │ │ ├── globals@9.18.0
+  │ │ │ └─┬ invariant@2.2.4
+  │ │ │   └── loose-envify@1.4.0
+  │ │ ├─┬ babel-types@6.26.0
+  │ │ │ └── to-fast-properties@1.0.3
+  │ │ ├── babylon@6.18.0
+  │ │ ├── convert-source-map@1.6.0
+  │ │ ├─┬ debug@2.6.9
+  │ │ │ └── ms@2.0.0
+  │ │ ├── json5@0.5.1
+  │ │ ├── lodash@4.17.11
+  │ │ ├── private@0.1.8
+  │ │ └── slash@1.0.0
+  │ ├── babel-plugin-transform-cjs-system-wrapper@0.3.0
+  │ ├─┬ babel-plugin-transform-es2015-modules-systemjs@6.24.1
+  │ │ └── babel-helper-hoist-variables@6.24.1
+  │ ├── babel-plugin-transform-global-system-wrapper@0.0.1
+  │ ├── babel-plugin-transform-system-register@0.0.1
+  │ ├── bluebird@3.5.3
+  │ ├── data-uri-to-buffer@0.0.4
+  │ ├─┬ es6-template-strings@2.0.1
+  │ │ ├─┬ es5-ext@0.10.46
+  │ │ │ ├── es6-iterator@2.0.3
+  │ │ │ ├── es6-symbol@3.1.1
+  │ │ │ └── next-tick@1.0.0
+  │ │ └─┬ esniff@1.1.0
+  │ │   └── d@1.0.0
+  │ ├── glob@7.1.3
+  │ ├─┬ rollup@0.36.4
+  │ │ └── source-map-support@0.4.18
+  │ ├── source-map@0.5.7
+  │ └─┬ uglify-js@2.7.5
+  │   └── async@0.2.10
+  ├─┬ traceur@0.0.105
+  │ ├─┬ commander@2.9.0
+  │ │ └── graceful-readlink@1.0.1
+  │ ├── glob@5.0.15
+  │ ├── semver@4.3.6
+  │ └─┬ source-map-support@0.2.10
+  │   └─┬ source-map@0.1.32
+  │     └── amdefine@1.0.1
+  └─┬ uglify-js@2.8.29
+    ├── uglify-to-browserify@1.0.2
+    └─┬ yargs@3.10.0
+      ├── camelcase@1.2.1
+      ├─┬ cliui@2.1.0
+      │ ├─┬ center-align@0.1.3
+      │ │ ├─┬ align-text@0.1.4
+      │ │ │ ├─┬ kind-of@3.2.2
+      │ │ │ │ └── is-buffer@1.1.6
+      │ │ │ └── longest@1.0.1
+      │ │ └── lazy-cache@1.0.4
+      │ ├── right-align@0.1.3
+      │ └── wordwrap@0.0.2
+      └── window-size@0.1.0
+```
+
+Файл [package.json](package.json) после установки [jspm](https://jspm.org/):
+
+```json
+{
+  "name": "electron-seed",
+  "description": "Seed project for electron apps.",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gusenov/electron-seed.git"
+  },
+  "homepage": "https://github.com/gusenov/electron-seed#readme",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^4.0.0",
+    "jspm": "^0.16.53"
   }
 }
 ```

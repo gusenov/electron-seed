@@ -861,9 +861,9 @@ Electron использует мультипроцессную архитект�
 </html>
 ```
 
-# Шаг № 9
+# [Шаг № 9](https://github.com/gusenov/electron-seed/commit/136f406b9e8a590788d419894a918e2a8f99077f)
 
-Подключение ES6-транспайлера в файле [index.html](index.html):
+Подключение ES6-транспайлера в файле [index.html](https://github.com/gusenov/electron-seed/blob/136f406b9e8a590788d419894a918e2a8f99077f/index.html):
 
 ```html
 <!DOCTYPE html>
@@ -890,7 +890,7 @@ Electron использует мультипроцессную архитект�
 
 Примеры:
 
-[lib/main.js](lib/main.js):
+[lib/main.js](https://github.com/gusenov/electron-seed/blob/136f406b9e8a590788d419894a918e2a8f99077f/lib/main.js):
 
 ```js
 import { Point } from './Point.js';
@@ -906,7 +906,7 @@ colorPoint = ColorPoint.default()
 console.log('Цветная точка по умолчанию: ' + colorPoint)
 ```
 
-[lib/Point.js](lib/Point.js):
+[lib/Point.js](https://github.com/gusenov/electron-seed/blob/136f406b9e8a590788d419894a918e2a8f99077f/lib/Point.js):
 
 ```js
 export class Point {
@@ -923,7 +923,7 @@ export class Point {
 }
 ```
 
-[lib/ColorPoint.js](lib/ColorPoint.js):
+[lib/ColorPoint.js](https://github.com/gusenov/electron-seed/blob/136f406b9e8a590788d419894a918e2a8f99077f/lib/ColorPoint.js):
 
 ```js
 import { Point } from './Point.js';
@@ -944,4 +944,12 @@ export class ColorPoint extends Point {
     }
 
 }
+```
+
+# Шаг № 10
+
+Запуск приложения:
+
+```bash
+./node_modules/.bin/electron .
 ```

@@ -210,7 +210,7 @@ electron-seed@0.1.0 /home/abbas/electron-seed
 }
 ```
 
-# Шаг № 5
+# [Шаг № 5](https://github.com/gusenov/electron-seed/commit/5d59aabc393e3824d076593d08e91e08fb35aabd)
 
 Установка [jspm](https://jspm.org/):
 
@@ -493,7 +493,7 @@ electron-seed@0.1.0 /home/abbas/electron-seed
       └── window-size@0.1.0
 ```
 
-Файл [package.json](package.json) после установки [jspm](https://jspm.org/):
+Файл [package.json](https://github.com/gusenov/electron-seed/blob/5d59aabc393e3824d076593d08e91e08fb35aabd/package.json) после установки [jspm](https://jspm.org/):
 
 ```json
 {
@@ -511,4 +511,216 @@ electron-seed@0.1.0 /home/abbas/electron-seed
     "jspm": "^0.16.53"
   }
 }
+```
+
+# Шаг № 6
+
+Инициализация [jspm](https://jspm.org/):
+
+```bash
+./node_modules/.bin/jspm init
+```
+
+```text
+Would you like jspm to prefix the jspm package.json properties under jspm? [yes]:
+Enter server baseURL (public folder path) [./]:
+Enter jspm packages folder [./jspm_packages]:
+Enter config file path [./config.js]:
+Configuration file config.js doesn't exist, create it? [yes]:
+Enter client baseURL (public folder URL) [/]:
+Do you wish to use a transpiler? [yes]:
+Which ES6 transpiler would you like to use, Babel, TypeScript or Traceur? [babel]:
+ok   Verified package.json at package.json
+     Verified config file at config.js
+     Looking up loader files...
+       system.js
+       system.src.js
+       system.js.map
+       system-csp-production.js
+       system-csp-production.js.map
+       system-polyfills.js
+       system-csp-production.src.js
+       system-polyfills.js.map
+       system-polyfills.src.js
+
+     Using loader versions:
+       systemjs@0.19.46
+     Looking up npm:babel-core
+     Looking up npm:babel-runtime
+     Looking up npm:core-js
+     Creating registry cache...
+     Downloading npm:core-js@1.2.7
+     Downloading npm:babel-runtime@5.8.38
+     Downloading npm:babel-core@5.8.38
+     Looking up github:jspm/nodelibs-process
+ok   Installed babel as npm:babel-core@^5.8.24 (5.8.38)
+     Downloading github:jspm/nodelibs-process@0.1.2
+     Looking up npm:process
+     Downloading npm:process@0.11.10
+     Looking up github:jspm/nodelibs-path
+     Looking up github:jspm/nodelibs-fs
+     Looking up github:systemjs/plugin-json
+ok   Installed npm:process@^0.11.0 (0.11.10)
+ok   Installed github:jspm/nodelibs-process@^0.1.0 (0.1.2)
+     Looking up github:jspm/nodelibs-vm
+     Downloading github:systemjs/plugin-json@0.1.2
+     Downloading github:jspm/nodelibs-path@0.1.0
+     Downloading github:jspm/nodelibs-fs@0.1.2
+     Looking up github:jspm/nodelibs-assert
+     Looking up npm:path-browserify
+     Downloading github:jspm/nodelibs-vm@0.1.0
+     Downloading github:jspm/nodelibs-assert@0.1.0
+     Downloading npm:path-browserify@0.0.0
+ok   Installed npm:path-browserify@0.0.0 (0.0.0)
+     Looking up npm:vm-browserify
+     Looking up npm:assert
+     Downloading npm:assert@1.4.1
+     Looking up npm:util
+ok   Installed github:jspm/nodelibs-fs@^0.1.0 (0.1.2)
+ok   Installed github:systemjs/plugin-json@^0.1.0 (0.1.2)
+ok   Installed github:jspm/nodelibs-path@^0.1.0 (0.1.0)
+     Downloading npm:vm-browserify@0.0.4
+     Looking up npm:indexof
+     Downloading npm:util@0.10.3
+     Looking up npm:inherits
+ok   Installed npm:assert@^1.3.0 (1.4.1)
+     Downloading npm:indexof@0.0.1
+     Downloading npm:inherits@2.0.1
+ok   Installed npm:vm-browserify@0.0.4 (0.0.4)
+ok   Installed npm:util@0.10.3 (0.10.3)
+ok   Installed github:jspm/nodelibs-vm@^0.1.0 (0.1.0)
+ok   Installed github:jspm/nodelibs-assert@^0.1.0 (0.1.0)
+ok   Installed npm:indexof@0.0.1 (0.0.1)
+ok   Installed npm:inherits@2.0.1 (2.0.1)
+     Looking up github:jspm/nodelibs-util
+     Downloading github:jspm/nodelibs-util@0.1.0
+ok   Installed github:jspm/nodelibs-util@^0.1.0 (0.1.0)
+     Looking up github:jspm/nodelibs-buffer
+     Downloading github:jspm/nodelibs-buffer@0.1.1
+     Looking up npm:buffer
+     Downloading npm:buffer@5.2.1
+     Looking up npm:base64-js
+     Looking up npm:ieee754
+     Downloading npm:base64-js@1.3.0
+ok   Installed github:jspm/nodelibs-buffer@^0.1.0 (0.1.1)
+     Downloading npm:ieee754@1.1.12
+ok   Installed npm:buffer@^5.0.6 (5.2.1)
+ok   Installed npm:base64-js@^1.0.2 (1.3.0)
+ok   Installed npm:ieee754@^1.1.4 (1.1.12)
+ok   Installed babel-runtime as npm:babel-runtime@^5.8.24 (5.8.38)
+ok   Installed core-js as npm:core-js@^1.1.4 (1.2.7)
+
+     The following new package versions were substituted by install deduping:
+
+       util 0.10.4 -> 0.10.3
+
+ok   Loader files downloaded successfully
+```
+
+Файл [package.json](package.json) после инициализации [jspm](https://jspm.org/):
+
+```json
+{
+  "name": "electron-seed",
+  "description": "Seed project for electron apps.",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gusenov/electron-seed.git"
+  },
+  "homepage": "https://github.com/gusenov/electron-seed#readme",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^4.0.0",
+    "jspm": "^0.16.53"
+  },
+  "jspm": {
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "core-js": "npm:core-js@^1.1.4"
+    }
+  }
+}
+```
+
+Файл [config.js](config.js) после инициализации [jspm](https://jspm.org/):
+
+```js
+System.config({
+  baseURL: "/",
+  defaultJSExtensions: true,
+  transpiler: "babel",
+  babelOptions: {
+    "optional": [
+      "runtime",
+      "optimisation.modules.system"
+    ]
+  },
+  paths: {
+    "github:*": "jspm_packages/github/*",
+    "npm:*": "jspm_packages/npm/*"
+  },
+
+  map: {
+    "babel": "npm:babel-core@5.8.38",
+    "babel-runtime": "npm:babel-runtime@5.8.38",
+    "core-js": "npm:core-js@1.2.7",
+    "github:jspm/nodelibs-assert@0.1.0": {
+      "assert": "npm:assert@1.4.1"
+    },
+    "github:jspm/nodelibs-buffer@0.1.1": {
+      "buffer": "npm:buffer@5.2.1"
+    },
+    "github:jspm/nodelibs-path@0.1.0": {
+      "path-browserify": "npm:path-browserify@0.0.0"
+    },
+    "github:jspm/nodelibs-process@0.1.2": {
+      "process": "npm:process@0.11.10"
+    },
+    "github:jspm/nodelibs-util@0.1.0": {
+      "util": "npm:util@0.10.3"
+    },
+    "github:jspm/nodelibs-vm@0.1.0": {
+      "vm-browserify": "npm:vm-browserify@0.0.4"
+    },
+    "npm:assert@1.4.1": {
+      "assert": "github:jspm/nodelibs-assert@0.1.0",
+      "buffer": "github:jspm/nodelibs-buffer@0.1.1",
+      "process": "github:jspm/nodelibs-process@0.1.2",
+      "util": "npm:util@0.10.3"
+    },
+    "npm:babel-runtime@5.8.38": {
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
+    "npm:buffer@5.2.1": {
+      "base64-js": "npm:base64-js@1.3.0",
+      "ieee754": "npm:ieee754@1.1.12"
+    },
+    "npm:core-js@1.2.7": {
+      "fs": "github:jspm/nodelibs-fs@0.1.2",
+      "path": "github:jspm/nodelibs-path@0.1.0",
+      "process": "github:jspm/nodelibs-process@0.1.2",
+      "systemjs-json": "github:systemjs/plugin-json@0.1.2"
+    },
+    "npm:inherits@2.0.1": {
+      "util": "github:jspm/nodelibs-util@0.1.0"
+    },
+    "npm:path-browserify@0.0.0": {
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
+    "npm:process@0.11.10": {
+      "assert": "github:jspm/nodelibs-assert@0.1.0",
+      "fs": "github:jspm/nodelibs-fs@0.1.2",
+      "vm": "github:jspm/nodelibs-vm@0.1.0"
+    },
+    "npm:util@0.10.3": {
+      "inherits": "npm:inherits@2.0.1",
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
+    "npm:vm-browserify@0.0.4": {
+      "indexof": "npm:indexof@0.0.1"
+    }
+  }
+});
 ```

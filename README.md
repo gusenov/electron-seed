@@ -964,3 +964,6 @@ export class ColorPoint extends Point {
 ```bash
 ./node_modules/.bin/electron .
 ```
+
+<kbd>![Скриншот](screenshot.png)</kbd>
+

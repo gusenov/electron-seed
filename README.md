@@ -513,7 +513,7 @@ electron-seed@0.1.0 /home/abbas/electron-seed
 }
 ```
 
-# Шаг № 6
+# [Шаг № 6](https://github.com/gusenov/electron-seed/commit/39cb1fd453e3fc6c07070db1d20b9af7df93f0eb)
 
 Инициализация [jspm](https://jspm.org/):
 
@@ -617,7 +617,7 @@ ok   Installed core-js as npm:core-js@^1.1.4 (1.2.7)
 ok   Loader files downloaded successfully
 ```
 
-Файл [package.json](package.json) после инициализации [jspm](https://jspm.org/):
+Файл [package.json](https://github.com/gusenov/electron-seed/blob/39cb1fd453e3fc6c07070db1d20b9af7df93f0eb/package.json) после инициализации [jspm](https://jspm.org/):
 
 ```json
 {
@@ -644,7 +644,7 @@ ok   Loader files downloaded successfully
 }
 ```
 
-Файл [config.js](config.js) после инициализации [jspm](https://jspm.org/):
+Файл [config.js](https://github.com/gusenov/electron-seed/blob/39cb1fd453e3fc6c07070db1d20b9af7df93f0eb/config.js) после инициализации [jspm](https://jspm.org/):
 
 ```js
 System.config({
@@ -723,4 +723,27 @@ System.config({
     }
   }
 });
+```
+
+# Шаг № 7
+
+Патч конфигурации jspm:
+
+```bash
+sed -i -e 's|"github:\*": "jspm_packages/github/\*"|"github:\*": "\./jspm_packages/github/\*"|g' "config.js"
+sed -i -e 's|"npm:\*": "jspm_packages/npm/\*"|"npm:\*": "\./jspm_packages/npm/\*"|g' "config.js"
+```
+
+Т.е. замена в файле [config.js](config.js) строк:
+
+```js
+"github:*": "jspm_packages/github/*",
+"npm:*": "jspm_packages/npm/*"
+```
+
+на:
+
+```js
+"github:*": "./jspm_packages/github/*",
+"npm:*": "./jspm_packages/npm/*"
 ```

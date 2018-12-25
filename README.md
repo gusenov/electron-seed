@@ -748,11 +748,11 @@ sed -i -e 's|"npm:\*": "jspm_packages/npm/\*"|"npm:\*": "\./jspm_packages/npm/\*
 "npm:*": "./jspm_packages/npm/*"
 ```
 
-# Шаг № 8
+# [Шаг № 8](https://github.com/gusenov/electron-seed/commit/270264593151df2ce93c988716a36e4a19b58174)
 
-Добавление скрипта в [package.json](package.json), который запустится *единственным главным процессом*.
+Добавление скрипта в [package.json](https://github.com/gusenov/electron-seed/blob/270264593151df2ce93c988716a36e4a19b58174/package.json), который запустится *единственным главным процессом*.
 
-Файл [package.json](package.json):
+Файл [package.json](https://github.com/gusenov/electron-seed/blob/270264593151df2ce93c988716a36e4a19b58174/package.json):
 
 ```json
 {
@@ -782,7 +782,7 @@ sed -i -e 's|"npm:\*": "jspm_packages/npm/\*"|"npm:\*": "\./jspm_packages/npm/\*
 
 Скрипт запускаемый *единственным главным процессом* может отображать GUI и создавать веб-страницы:
 
-Файл [main.js](main.js):
+Файл [main.js](https://github.com/gusenov/electron-seed/blob/270264593151df2ce93c988716a36e4a19b58174/main.js):
 
 ```js
 const { app, BrowserWindow } = require('electron')
@@ -843,7 +843,7 @@ Electron использует мультипроцессную архитект�
 В обыкновенных браузерах, веб-страницы запускаются в песочницах и не могут получить доступ к нативным ресурсам.
 Но в Electron на веб-страницах пользователям доступен Node.js API, который позволяет низкоуровневое взаимодействие с ОС.
 
-Файл [index.html](index.html):
+Файл [index.html](https://github.com/gusenov/electron-seed/blob/270264593151df2ce93c988716a36e4a19b58174/index.html):
 
 ```html
 <!DOCTYPE html>
@@ -859,4 +859,89 @@ Electron использует мультипроцессную архитект�
     и Electron <script>document.write(process.versions.electron)</script>.
   </body>
 </html>
+```
+
+# Шаг № 9
+
+Подключение ES6-транспайлера в файле [index.html](index.html):
+
+```html
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Здравствуй, мир!</title>
+
+    <script src="jspm_packages/system.js"></script>
+    <script src="config.js"></script>
+    <script>
+      System.import('./lib/main.js');
+    </script>
+
+  </head>
+  <body>
+    <h1>Здравствуй, мир!</h1>
+    Используется Node.js <script>document.write(process.versions.node)</script>,
+    Chrome <script>document.write(process.versions.chrome)</script>,
+    и Electron <script>document.write(process.versions.electron)</script>.
+  </body>
+</html>
+```
+
+Примеры:
+
+[lib/main.js](lib/main.js):
+
+```js
+import { Point } from './Point.js';
+import { ColorPoint } from './ColorPoint.js';
+
+const firstPoint = new Point(2, 10)
+console.log('Первая точка: ' + firstPoint)
+
+let colorPoint = new ColorPoint(2, 10, 'green')
+console.log('Вторая точка: ' + colorPoint)
+
+colorPoint = ColorPoint.default()
+console.log('Цветная точка по умолчанию: ' + colorPoint)
+```
+
+[lib/Point.js](lib/Point.js):
+
+```js
+export class Point {
+
+  constructor(x, y) {
+    this.x = x
+    this.y = y
+  }
+
+  toString() {
+    return '[X=' + this.x + ', Y=' + this.y + ']'
+  }
+
+}
+```
+
+[lib/ColorPoint.js](lib/ColorPoint.js):
+
+```js
+import { Point } from './Point.js';
+
+export class ColorPoint extends Point {
+
+    static default() {
+        return new ColorPoint(0, 0, 'black')
+    }
+
+    constructor(x = 0, y = 0, color = 'white') {
+        super(x, y)
+        this.color = color
+    }
+
+    toString() {
+        return '[X=' + this.x + ', Y=' + this.y + ', color=' + this.color + ']'
+    }
+
+}
 ```
